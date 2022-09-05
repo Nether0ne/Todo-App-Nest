@@ -1,0 +1,15 @@
+import { IsNotEmpty, Length } from 'class-validator';
+
+export class LoginUserDto {
+  @IsNotEmpty()
+  @Length(5, 64, {
+    message: 'Email must contain at least 5 characters but no more than 64',
+  })
+  email: string;
+
+  @IsNotEmpty()
+  @Length(6, 32, {
+    message: 'Password must contain at least 5 characters but no more than 32',
+  })
+  password: string;
+}
