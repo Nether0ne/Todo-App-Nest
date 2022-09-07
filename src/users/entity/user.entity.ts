@@ -22,4 +22,21 @@ export class UserEntity {
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 10);
   }
+
+  // For testing purposes
+  constructor(
+    id?: string,
+    username?: string,
+    email?: string,
+    password?: string,
+    createdAt?: Date,
+    updatedAt?: Date,
+  ) {
+    this.id = id || '';
+    this.username = username || '';
+    this.email = email || '';
+    this.password = bcrypt.hashSync(password || '', 10);
+    this.createdAt = createdAt || new Date();
+    this.updatedAt = updatedAt || new Date();
+  }
 }
